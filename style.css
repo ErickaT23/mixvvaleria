@@ -878,7 +878,7 @@ button:hover {
 /*footer*/
 footer {
     padding: 20px;
-    background:rgb(157,126, 182);
+    background:#b9a6ce;
     color: white;
     font-size: var(--footer-font-size);
     width: 100%;
@@ -1172,7 +1172,9 @@ footer {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    z-index: -2;
+    opacity: 1 !important;                 /* SIN transparencia */
+  filter: none !important;               /* sin saturate/tint */
+  mix-blend-mode: normal !important;     /* evita mezclas raras */
   }
   
   /* Velo suave para que el texto (dorado) se lea siempre */
