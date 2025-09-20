@@ -1,0 +1,1197 @@
+:root {
+    --color-1:	#b199cc;
+    --color-2: 	#efe3fc;
+    --color-3:#003366;
+    --color-4:#F5F5F5;
+    --font-title:"Great Vibes", serif;
+    --font-text:"Playfair", serif;
+    --scroll-animation-duration: 0.5s;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    background-color: white;
+    font-family: 'cormorant garamond';
+    font-style: italic;
+}
+#envelope {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    perspective: 1000px;
+    z-index: 10;
+}
+#envelope:hover {
+    transform: scale(1.05);
+}
+/* Parte superior del sobre (solapa) */
+#envelope-top {
+    top: 0;
+    border-bottom: none;
+}
+/* Parte inferior del sobre (cuerpo) */
+#envelope-bottom {
+    bottom: 0;
+    border-top: none;
+}
+#envelope-top, #envelope-bottom {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    background-image: url(/imagenes/sobre.png);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.216);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+/* Sello del sobre */
+#seal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 145px;
+    height: 145px;
+    background-color: #9D7EB6;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.216);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: opacity 1s ease-in-out;
+    z-index: 11; /* El círculo rosa encima de la rosa */
+}
+/* Texto dentro del sello */
+#seal h2 {
+    margin: 0;
+    background: linear-gradient(to right, #ffac00, #d4af37, #d6b80d, #d4af37, #ffac00);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 1.5s infinite linear;
+    font-family: var(--font-title);
+    font-weight: 400;
+    font-style: italic;
+    z-index: 12; /* Texto encima de todo */
+    position: relative;
+    font-size: 30px;
+}
+#invitacion {
+    display: none;
+    background: transparent;
+    max-width: 800px;
+    width: 100%;
+    box-sizing: border-box;
+}
+/* ====== PORTADA (HERO) ====== */
+.hero{
+    position: relative;
+    width: 100%;
+    min-height: 88vh;              /* que respire en móviles */
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    isolation: isolate;            /* para manejar capas sin afectar otros z-index */
+    background: var(--color-4);
+  }
+  
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image: var(--hero-url);
+    background-size: cover;
+    background-position: center;
+    filter: saturate(1.05);
+    z-index: -2;
+  }
+  /* Badge superior con nombre del invitado */
+  .hero__badge{
+    position: absolute;
+    top: 12px; left: 50%;
+    transform: translateX(-50%);
+    background: rgba(217, 200, 236, .75);
+    backdrop-filter: blur(2px);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-family: var(--font-text);
+    font-style: italic;
+    font-size: 18px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.15);
+    border: 1px solid rgba(255,255,255,.3);
+  }
+  /* Títulos */
+  .hero__titles{
+    text-align: center;
+    animation: fadeIn var(--scroll-animation-duration) ease-in forwards;
+    margin-top: 500px;
+  }
+  .hero__h1, .hero__h2{
+    margin: 0;
+    line-height: 1.05;
+    letter-spacing: .3px;
+    text-shadow: 2px 2px 6px rgba(0,0,0,.35);
+  }
+  
+  /* Dorado en los títulos (reutiliza tu gradiente) */
+  .hero__h1, .hero__h2{
+        background: linear-gradient(to right, #5d3f00, #9e7f18, #a99312, #9e7f18, #5d3f00);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 1.5s infinite linear;
+    font-family: var(--font-title);
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+.hero__h1{
+        font-size: 60px;
+        padding: 15px;
+        margin-top: 200px;
+    }
+.hero__h2{
+        font-size: 55px;
+        padding: 15px;
+        margin-top: -20px;
+    }
+  
+  /* ====== Estrellas (imágenes) ====== */
+  .hero__stars{
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  
+  .star-img{
+    position: absolute;
+    width: 40px; height: 40px;
+    opacity: .9;
+    animation: twinkle 3.8s ease-in-out infinite;
+    filter: drop-shadow(0 0 6px rgba(212,175,55,.75));
+  }
+  
+  /* Posiciones predefinidas (podés ajustar) */
+  .star-img.s1{ top: 18%; left: 12%; animation-delay: .2s; transform: rotate(12deg); }
+  .star-img.s2{ top: 28%; right: 14%; animation-delay: .9s; transform: rotate(-8deg); }
+  .star-img.s3{ bottom: 22%; left: 20%; animation-delay: 1.6s; transform: rotate(5deg); }
+  .star-img.s4{ bottom: 15%; right: 18%; animation-delay: .5s; transform: rotate(-12deg); }
+  .star-img.s5{ top: 8%; left: 70%; animation-delay: 1.2s; transform: rotate(7deg); }
+  
+  /* Si querés estrellas más pequeñas en mobile */
+  @media (max-width: 480px){
+    .star-img{ width: 16px; height: 16px; }
+    .hero__badge{ 
+        font-size: 25px;
+    }
+  }
+/* ===== Sección unificada con fondo ===== */
+.block--celebracion{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;               /* pantalla completa */
+    display: grid;
+    place-items: center;
+    isolation: isolate;               /* controlar capas */
+    overflow: hidden;
+  }
+  /* Imagen de fondo */
+  .block--celebracion::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image: var(--bg-url);
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+    filter: saturate(1.05);
+  }
+  /* Contenedor interno para no estirar demasiado en desktop */
+  .block--celebracion .block__content{
+    width: min(980px, 95vw);
+    display: grid;
+    gap: 20px;
+  }
+  /* Como estas sub-secciones ya tenían fondos/overlays en tu CSS,
+     los neutralizamos aquí para que se vea el fondo unificado */
+  .block--celebracion .section-countdown::before,
+  .block--celebracion .section-music::before,
+  .block--celebracion .section-b::before{
+    content: none !important;
+    background: none !important;
+  }
+  /* Transparencias suaves para las tarjetas circulares y el botón */
+  .block--celebracion .countdown-circle{
+    background: rgba(255,255,255,0.6);
+  }
+  .block--celebracion .section-calendar{
+    background-color: rgba(255,255,255,0.6);
+    border: 1px solid rgba(255,255,255,0.35);
+  }
+  
+  /* Ajustes responsivos de espaciado */
+  @media (min-width: 768px){
+    .block--celebracion .block__content{
+      gap: 28px;
+    }
+  }
+  
+/*secciones generales*/
+.section , .section-playlist, .section-filter, .section-quote{
+    padding: 0;
+    transform: translateY(20px);
+    animation: fadeIn var(--scroll-animation-duration) ease-in forwards;
+}
+/*sección countdown*/
+.section-countdown {
+    position: relative;
+    overflow: hidden; /* Asegura que el overlay no se salga */
+    z-index: 0; /* Importante para controlar capas */
+    margin: 0;
+    padding: 0;
+    transform: translateY(20px);
+    animation: fadeIn var(--scroll-animation-duration) ease-in forwards;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .section-countdown::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(/imagenes/fondo-estrellas.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.6; /* Aquí controlás cuánta opacidad querés */
+    z-index: -1; /* Pone la imagen detrás del contenido */
+  }
+
+/*dorado*/
+.section-countdown h1, p, .countdown-circle span, .section-music h2, .section-quote h1{
+    background: linear-gradient(to right, #5d3f00, #9e7f18, #a99312, #9e7f18, #5d3f00);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 1.5s infinite linear;
+}
+.section-countdown h1 {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: var(--font-text);
+    font-size: 42px;
+    font-weight: 400;
+    font-style: italic;
+    padding: 10px;
+    margin-bottom: 0;
+}
+.section-countdown p {
+    margin: 0;
+    font-family: var(--font-text);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 24px;
+    padding: 7px;
+}
+.section-countdown h2 {
+    color: var(--color-2);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: var(--font-text);
+    font-size: 1.5em;
+    font-weight: 400;
+    font-style: italic;
+    padding: 5px;
+    margin: 0;
+}
+#contador{
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 0;
+}
+.countdown-circle {
+    width: 75px;
+    height: 75px;
+    background:#ffffff91;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+.countdown-circle span {
+    font-size: 18px;
+    font-weight: 400;
+    padding: 0;
+    font-family: var(--font-text);
+    font-style: italic;
+}
+.section-calendar {
+    padding: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    width: 180px;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: #ffffff91;
+    cursor: pointer;
+}
+.section-calendar a {
+    text-decoration: none;
+    font-family: var(--font-text);
+    color: var(--color-1);
+    font-style: italic;
+    font-size: 1.2em;
+}
+.section-calendar:hover {
+    background-color: var(--color-2);
+}
+.section-calendar a:hover {
+    color: white;
+}
+.section-music {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    z-index: 0; /* Asegura que el contenido quede por encima */
+    overflow: hidden; /* Por si acaso el fondo se sale */
+  }
+  .section-music::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(/imagenes/fondo-estrellas.png); /* Cambiá por la ruta que necesites */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.5;
+    z-index: -1; /* Coloca el fondo detrás del contenido */
+  }
+.section-music h2{
+    font-family: var(--font-text);
+    font-size: 20px;
+    font-weight: 400;
+    font-style: italic;
+}
+#nombreInvitado.fondo-nombre {
+    color: white;
+    padding: 10px;
+    margin-bottom: 0;
+    width: 100%;
+    height: auto;
+}
+#cantidadPases.fondo-pases {
+    color: white;
+    padding: 10px;
+    margin-bottom: 0;
+    margin-top: 0;
+    width: 100%;
+    height: auto;
+}
+.block--video{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;          /* ajusta: 30–50vh suele verse bien */
+    overflow: hidden;
+    isolation: isolate;
+  }
+  
+  .block--video .block-video{
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;         /* recorta sin deformar */
+    filter: saturate(1.05);
+  }
+  
+  /* Respeto a usuarios con reducción de movimiento */
+  @media (prefers-reduced-motion: reduce){
+    .block--video .block-video{ display: none; }
+    .block--video{ 
+      background: url('/imagenes/divider-poster.jpg') center/cover no-repeat;
+      min-height: 35vh;
+    }
+  }
+  /* ===== Bloque unificado con fondo ===== */
+  /* ===== Sección unificada con fondo ===== */
+.block--fondo{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;               /* pantalla completa */
+    display: grid;
+    place-items: center;
+    isolation: isolate;               /* controlar capas */
+    overflow: hidden;
+  }
+  /* Imagen de fondo */
+  .block--fondo::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image: var(--bg-url);
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+    filter: saturate(1.05);
+  }
+.block--fondo{
+    position: relative;
+    width: 100%;
+    isolation: isolate;
+    overflow: hidden;
+  }
+  .block--fondo .block__content{
+    width: min(1100px, 95vw);
+    margin: 0 auto;
+    display: grid;
+    gap: 22px;
+  }
+  
+  /* Neutralizar overlays de secciones internas para que se vea el fondo unificado */
+  .block--fondo .section::before,
+  .block--fondo .section-playlist::before,
+  .block--fondo .section-gifts::before{
+    content: none !important;
+    background: none !important;
+  }
+  /* Tarjetas del itinerario en grid */
+  .itinerary-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .event-card{
+    border-radius: 14px;
+    padding: 18px;
+  }
+  .event-card h2{ margin-top: 8px; }
+  .event-card p { margin: 6px 0; }
+  .event-card .time-location{ display: flex; align-items: center; gap: 8px; justify-content: center; }
+  
+  .direction-button{
+    background-color: rgb(217,190,238);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-family: var(--font-text);
+    font-style: italic;
+    font-size: 18px;
+    cursor: pointer;
+    transition: transform .2s ease, filter .2s ease;
+  }
+  .direction-button:hover{ transform: translateY(-1px); filter: brightness(1.05); }
+  
+  @media (min-width: 768px){
+    .itinerary-grid{ grid-template-columns: 1fr 1fr; gap: 22px; }
+  }
+  /* ===== Bloque unificado final con fondo ===== */
+.block--fondo-final{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;    
+    isolation: isolate;
+    overflow: hidden;
+  }
+  .block--fondo-final::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image: var(--bg-url);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -2;
+    filter: saturate(1.05);
+  }
+  .block--fondo-final .block__content{
+    width: min(1100px, 95vw);
+    margin: 0 auto;
+    display: grid;
+    gap: 22px;
+    position: relative; /* sobre el velo */
+    z-index: 1;
+  }
+  /* Neutralizar overlays internos para que se vea el fondo único */
+  #bloque-final .section::before,
+  #bloque-final .section-wishes::before,
+  #bloque-final .section-filter::before{
+    content: none !important;
+    background: none !important;
+  }
+  
+  /* Mejorar legibilidad en tarjetas con fondo translúcido (opcional) */
+  #bloque-final .section,
+  #bloque-final .section-wishes,
+  #bloque-final .section-filter{
+    border-radius: 14px;
+    backdrop-filter: blur(2px);
+  }
+  
+  /* La galería mantiene su estilo existente */
+  #bloque-final .galeria img{
+    border-radius: 10px;
+  }
+  
+  /* Responsivo */
+  @media (min-width: 768px){
+    .block--fondo-final .block__content{ gap: 26px; }
+  }
+  
+/*section blessed*/
+.section-b {
+    position: relative;
+    width: 100%;
+    height: 370px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 0;
+    z-index: 0; /* Asegura que el contenido esté sobre el fondo */
+  }
+  .section-b::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(/imagenes/fondo-estrellas.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.5; /* Controla la opacidad del fondo */
+    z-index: -1; /* Coloca la imagen detrás del contenido */
+  }  
+.section-b p{
+    font-family: var(--font-text);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 28px;
+    margin-top: -60px;
+        background: linear-gradient(to right, #5d3f00, #9e7f18, #a99312, #9e7f18, #5d3f00);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 1.5s infinite linear;
+}
+.section-b h1, .section-b h2, .section-b h3{
+    font-family: var(--font-title);
+    padding: 15px;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 50px;
+    margin-top: -10px;
+    margin-bottom: -10px;
+    color:var(--color-2);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+.section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    z-index: 0;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(/imagenes/fondo-estrellas.png); /* Ruta de tu imagen */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.5;
+    z-index: -1;
+  }
+  .section-gifts {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .section-gifts::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(/imagenes/fondo-estrellas.png); /* Ruta de tu imagen */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.5;
+    z-index: -1;
+  }
+.section h1{
+    font-family: var(--font-text);
+    padding: 15px;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 40px;
+    margin-top: -10px;
+    margin-bottom: -10px;
+        background: linear-gradient(to right, #5d3f00, #9e7f18, #a99312, #9e7f18, #5d3f00);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 1.5s infinite linear;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+/*secciones otros colores*/
+.section-wishes,
+.section-playlist {
+  position: relative;
+  width: 100%;
+  z-index: 0;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+/* Imagen de fondo con opacidad */
+.section-wishes::before,
+.section-playlist::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(/imagenes/fondo-estrellas.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.4; /* Podés ajustar entre 0.3 y 0.6 según qué tan sutil lo querés */
+  z-index: -1;
+}
+.section-playlist p {
+    font-family: var(--font-text);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 28px;
+    color: var(--color-2);
+}
+.section-main {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    transform: translateY(20px);
+    animation: fadeIn var(--scroll-animation-duration) ease-in forwards;
+}
+.section-main img {
+    width: 100%;
+    height: auto;
+}
+.section-quote h1 {
+    font-family: var(--font-title);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 35px;
+    padding: 15px;
+    margin: 0;
+}
+.section-main h2 {
+    top: 18%;
+    font-size: 50px;
+}
+.section h2, .section-playlist h2, .section-gifts h2, .section h3, .section-filter h2, .section-filter h3,   .section.no-ninos h2{
+    font-family: var(--font-title);
+    padding: 10px;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 40px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: var(--color-2);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+.section p, .section-gifts p, .section-filter p{
+    font-family: var(--font-text);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 28px;
+    padding: 5px;
+    margin: 0;
+    color: var(--color-2);
+}
+.section span{
+    font-family: var(--font-text);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    color: var(--color-2);
+    padding: 0;
+    margin: 0;
+}
+.icon {
+    padding: 0;
+    margin: 0;
+}
+.icon img {
+    width: 50%;
+    margin-top: -20px;
+    margin-bottom: -20px;
+}/*section div4*/
+/*galeria*/
+/* ===== Galería tipo grid 2xN (móvil) con tarjetas cuadradas ===== */
+.galeria{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);   /* 2 columnas como en tu captura */
+    gap: 12px;                                /* separación entre tarjetas */
+    padding: 12px;                            /* respiro interior */
+  }
+  
+  /* Cada imagen se comporta como tarjeta cuadrada */
+  .galeria img{
+    width: 100%;
+    aspect-ratio: 1 / 1;                      /* SIEMPRE cuadrado */
+    object-fit: cover;                         /* recorte elegante */
+    border-radius: 14px;                       /* esquinas redondeadas */
+    box-shadow: 0 10px 24px rgba(0,0,0,.10);   /* sombra suave */
+    display: block;                            /* elimina espacios fantasmas */
+    background: #fff;                          /* fondo por si tarda en cargar */
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  
+  /* Efecto hover (en desktop) */
+  @media (hover:hover){
+    .galeria img:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(0,0,0,.12);
+    }
+  }
+  
+  /* Títulos de la sección "Galería" más separados del grid */
+  .section h2 + .galeria{ margin-top: 8px; }
+  
+  /* Desktop: 3 columnas (ajusta a 4 si quieres) */
+  @media (min-width: 768px){
+    .galeria{ grid-template-columns: repeat(3, 1fr); gap: 14px; padding: 14px; }
+  }
+  @media (min-width: 1024px){
+    /* si prefieres 4 columnas, cambia el 3 por 4 */
+    .galeria{ grid-template-columns: repeat(3, 1fr); gap: 16px; padding: 16px; }
+  }
+  
+.galeria img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+.galeria img:hover {
+    transform: scale(1.1);
+}
+.photo-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+.photo-modal img {
+    max-width: 80%;
+    max-height: 80%;
+    margin: auto;
+    display: block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+.close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}/*botones*/
+button {
+    background-color:rgb(217, 190, 238);
+    color: #fff;
+    border-radius: 5px;
+    font-family: var(--font-text);
+    padding: 10px;
+    transition: background-color 0.3s;
+    border: none;
+    font-size: 1em;
+    text-transform: none;
+    margin-bottom: 20px;
+    font-style: italic;
+    font-size: 20px;
+}
+button:hover {
+    background-color: #d4ac0d;
+    color:white;
+}
+/*footer*/
+footer {
+    padding: 20px;
+    background:rgb(157,126, 182);
+    color: white;
+    font-size: var(--footer-font-size);
+    width: 100%;
+    box-sizing: border-box;
+}
+.section-social-icons {
+    padding: 20px;
+}
+.section-social-icons a {
+    color: white;
+    margin: 0 10px;
+    text-decoration:none;
+}
+.section-social-icons i{
+    font-size: 35px;
+}
+.section-logo img{
+    margin-top: 0px;
+}
+/*Buenos deseos*/
+.section-wishes {
+    text-align: center;
+    animation: fadeIn var(--scroll-animation-duration) ease-in forwards;
+  }
+  .section-wishes h2 {
+    font-family: var(--font-title);
+    font-size: 50px;
+    color: var(--color-2);
+    font-style: italic;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+  }
+  .section-wishes form {
+    margin-bottom: 20px;
+  }
+  .section-wishes input,
+  .section-wishes textarea {
+    width: 90%;
+    max-width: 500px;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid var(--color-2);
+    border-radius: 5px;
+    font-family: var(--font-text);
+    font-style: italic;
+    font-size: 1em;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  }
+  .section-wishes textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  #wishesContainer {
+    margin-top: 20px;
+  }
+  .wish-card {
+    background-color:white;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    margin-bottom: 10px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .wish-card strong {
+    display: block;
+    font-family: var(--font-title);
+    font-size: 1.2em;
+    color: var(--color-2);
+  }
+  .wish-card em {
+    font-family: var(--font-text);
+    font-style: italic;
+    color: var(--color-2);
+  }
+#magicEffect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+  }
+  .sparkle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle, #fff8dc 0%, #d6b80d 70%, transparent 100%);
+    border-radius: 50%;
+    animation: sparkle 1s ease-out forwards;
+    opacity: 0.7;
+  }
+  .section.no-ninos {
+    padding: 25px 20px;
+    max-width: 700px;
+    text-align: center;
+  }
+  @keyframes sparkle {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(2.5) translateY(-100px);
+      opacity: 0;
+    }
+  }
+  #starfield {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* para no interferir con clicks */
+    z-index: 1; /* debajo de contenido principal */
+    background: transparent;
+    overflow: hidden;
+  }
+  .star {
+    position: absolute;
+    background: radial-gradient(circle, #fff8dc 0%, #d6b80d 70%, transparent 100%);
+    border-radius: 50%;
+    opacity: 0.6;
+    box-shadow: 0 0 6px 2px #d6b80dcc; /* brillo suave */
+    animation-name: twinkle;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 0.2; }
+  }
+  .section-filter {
+    position: relative;
+    background-color: transparent; /* Podés ajustar si querés otro color base */
+    width: 100%;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  /* Imagen de fondo con opacidad */
+  .section-filter::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(/imagenes/fondo-estrellas.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.4; /* Ajustable según el efecto deseado */
+    z-index: -1;
+  }
+  .section-quote {
+    position: relative;
+    background-color: transparent; /* Color base translúcido */
+    width: 100%;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  /* Imagen de fondo con opacidad */
+  .section-quote::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(/imagenes/fondo-estrellas.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.4; /* Ajustalo según cómo querés que luzca */
+    z-index: -1;
+  }
+  
+/* Media Queries */
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* iPad Styles */
+    .seal{
+        width: 200px;
+        height: 200px;
+        }
+    .sealh h2{
+            font-size: 60px;
+        }
+    .section-music{
+        margin-top: -90px;
+        height: 500px;
+    }
+    .section-main h1, .section-main h2 {
+        font-size: 3em;
+    }
+
+    .section-countdown h1,
+    .section-countdown h2,
+    .section-b h1,
+    h1,
+    .section h2,
+    .section h3 {
+        font-size: 2.5em;
+    }
+
+    .section p,
+    .section-countdown p,
+    .section-calendar a {
+        font-size: 1.5em;
+    }
+}
+@media (min-width: 1025px) {
+    /* Laptop Styles */
+    .seal{
+    width: 200px;
+    height: 200px;
+    }
+    .sealh h2{
+        font-size: 60px;
+    }
+    .sintillo{
+        height: 500px;
+        margin-bottom: -80px;
+    }
+    .sintillo h1{
+        font-size: 120px;
+        margin-top: 10px;
+    }
+    .sintillo h2{
+        font-size: 150px;
+        margin-top: 280px;
+    }
+    .section-music{
+        margin-top: -90px;
+        height: 500px;
+    }
+    .section-music h2{
+        font-size: 50px;
+    }
+    .section-countdown h1,
+    .section-countdown h2,
+    .section-b h1,
+    h1,
+    .section h2,
+    .section h3 {
+        font-size: 3em;
+    }
+    .section p,
+    .section-countdown p,
+    .section-calendar a, .section-b p{
+        font-size: 1.8em;
+    }
+    .countdown-circle{
+        height: 180px;
+        width: 180px;
+    }
+    .countdown-circle span{
+        font-size: 50px;
+    }
+    .section-quote{
+        padding: 10px;
+    }
+    .section-social-icons i{
+        font-size: 55px;
+        margin-top: 10px;
+    }
+    .section-logo img{
+        margin-top: 0px;
+    }
+}
+
+/* ===== Frase final con imagen de fondo ===== */
+.section-quote.bg-image{
+    position: relative;
+    min-height: 48vh;                 /* alto agradable en móvil */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    isolation: isolate;   
+    margin-top: -20px;            /* manejar capas sin afectar otros z-index */
+  }
+  
+  /* Fondo (reemplaza el de estrellas porque este bloque va al final) */
+  .section-quote.bg-image::before{
+    content: "";
+    position: absolute; inset: 0;
+    background-image: var(--quote-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -2;
+  }
+  
+  /* Velo suave para que el texto (dorado) se lea siempre */
+  .section-quote.bg-image::after{
+    content: "";
+    position: absolute; inset: 0;
+    z-index: -1;
+  }
+  
+  .section-quote.bg-image h1{
+    margin: 0;
+    max-width: 980px;    /* evita líneas demasiado largas */
+    line-height: 1.2;
+    padding: 8px 0;
+  }
+  
+  /* Ajustes responsivos */
+  @media (min-width: 768px){
+    .section-quote.bg-image{ min-height: 56vh; padding: 36px 24px; }
+  }
+  
+

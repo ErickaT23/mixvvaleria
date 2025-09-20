@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Quince Valeria Farfán Lucas</title>
+    <meta property="og:title" content="Mis Quince  Valeria Farfán Lucas">
+    <meta property="og:description" content="Te invito a mis quince, con amor Valeria.">
+    <meta property="og:image" content="https://i.postimg.cc/2j0Dfhkv/v6.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preload" href="/imagenes/sobre.png" as="image">
+     <!-- Preconnect and Load Fonts -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap" rel="stylesheet">
+     <script src="https://cdn.lordicon.com/lordicon.js"></script>   
+</head>
+<body>
+    <div id="starfield"></div>
+    <!-- Sobre de la Invitación -->
+    <div id="envelope">
+        <div id="starfield-envelope"></div> <!-- Aquí estarán las estrellas -->
+        <div id="envelope-top"></div>
+        <div id="seal">
+            <h2 class=" visible" style="transition-delay: 0s;">Mis Quince Valeria</h2>
+        </div>
+        <div id="envelope-bottom"></div>
+    </div>
+    <!-- Contenido de la Invitación -->
+    <div id="invitacion">
+        <!--Header-->
+        <!-- PORTADA -->
+        <section id="portada" class="hero" style="--hero-url:url('/imagenes/portada.png')">
+        <!-- Badge superior con el nombre del invitado -->
+        <div id="badgeInvitado" class="hero__badge" aria-live="polite"></div>
+  
+    <!-- Títulos sobre la foto -->
+    <div class="hero__titles">
+      <h1 class="hero__h1">Mis Quince</h1>
+      <h2 class="hero__h2">Valeria Farfán Lucas</h2>
+    </div>
+  
+    <!-- Estrellas decorativas (imágenes) -->
+    <div class="hero__stars" aria-hidden="true">
+      <img src="/imagenes/ESTRELLAS-D.png" alt="" class="star-img s1">
+      <img src="/imagenes/ESTRELLAS-I.png" alt="" class="star-img s2">
+      <img src="/imagenes/ESTRELLAS-D.png" alt="" class="star-img s3">
+      <img src="/imagenes/ESTRELLAS-I.png" alt="" class="star-img s4">
+      <img src="/imagenes/ESTRELLAS-D.png" alt="" class="star-img s5">
+    </div>
+        </section>
+        <!-- SECCIÓN UNIFICADA CON FONDO -->
+        <section id="celebracion" class="block block--celebracion "
+        style="--bg-url:url('/imagenes/siguiente.png')">
+
+        <!-- Contenido centrado -->
+        <div class="block__content">
+
+        <!-- Contador e invitación -->
+        <div class="section-countdown">
+        <h1>¡Están invitados!</h1>
+        <p>Nos encanta que sean parte de este momento tan especial para nosotros.</p>
+        <h2>29 . 11 . 2025</h2>
+
+        <div id="contador">
+            <div class="countdown-circle">
+                <span id="dias">00</span>
+                <span>días</span>
+            </div>
+            <div class="countdown-circle">
+                <span id="horas">00</span>
+                <span>horas</span>
+            </div>
+            <div class="countdown-circle">
+                <span id="minutos">00</span>
+                <span>minutos</span>
+            </div>
+            <div class="countdown-circle">
+                <span id="segundos">00</span>
+                <span>segundos</span>
+            </div>
+        </div>
+        <!-- Agregar al Calendario -->
+        <div class="section-calendar">
+            <a target="_blank" href="https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=M21lcThydG1xc29rcWpjZWFwZmFnazJodjAgY182OTRhZWE0ODlhN2FkZTJiYzRmYjRiNGExYTE2ZmY3ZDY2ZjAzNzFlMTgwY2I1MzZmM2M3YzE2NGUxZWMwOGIxQGc&tmsrc=c_694aea489a7ade2bc4fb4b4a1a16ff7d66f0371e180cb536f3c7c164e1ec08b1%40group.calendar.google.com"> Agregar al calendario</a>
+        </div>
+        </div>
+
+            <!-- Música -->
+            <div class="section-music">
+                <h2>"A Sky Full Of Star - Coldplay"</h2>
+                <audio id="musica" controls loop>
+                    <source src="/A Sky Full Of Star - Coldplay (Lyrics  Vietsub).mp3" type="audio/mpeg">
+                    Tu navegador no soporta la reproducción de audio.
+                </audio>
+            </div>
+
+            <!-- Bendición -->
+            <div class="section-b">
+                <p>Con la bendición de Dios y de mis padres</p>
+                <h1>Angel Farfán</h1>
+                <h2>&</h2>
+                <h1>Genoveva Lucas</h1>
+            </div>
+
+        </div>
+        </section>
+        <!-- SECCIÓN VIDEO DIVISORIA -->
+        <section class="block block--video divider ">
+         <video
+      class="block-video"
+      src="/imagenes/v1.mp4"
+      poster="/imagenes/foto1.png"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+    ></video>
+  </section>
+  <!-- SECCIÓN UNIFICADA: Invitados + Itinerario + Regalos + Playlist -->
+        <section id="bloque-informacion" class="block block--fondo"
+        style="--bg-url:url('/imagenes/siguiente.png')">
+        
+        <div class="block__content">
+            <!-- Invitados y Pases -->
+            <div class="section section--intro">
+<h1>Los invitamos con mucho cariño</h1>
+<h3 id="nombreInvitado"></h3>
+<h3 id="cantidadPases"></h3>
+</div>
+
+<!-- Itinerario -->
+<div class="section itinerary-grid">
+<!-- Ceremonia -->
+<div class="card event-card ceremony">
+<lord-icon
+ src="https://cdn.lordicon.com/jqmftaai.json"
+ trigger="loop"
+ delay="2000"
+ stroke="light"
+ colors="primary:#d7bde2 ,secondary:#E6E6FA"
+ style="width:200px;height:200px">
+</lord-icon>
+<h2>Ceremonia</h2>
+<p>Iglesia Nuestra Señora de Guadalupe</p>
+<div class="details">
+ <div class="time-location">
+   <span class="date">29 Noviembre</span>
+   <span class="separator">|</span>
+   <span class="time">16:45 hrs</span>
+ </div>
+ <p>19 Calle, Zona 10, Ciudad de Guatemala</p>
+ <button type="button" class="direction-button" onclick="elegirAplicacion()">Cómo llegar</button>
+</div>
+</div>
+
+<!-- Recepción -->
+<div class="card event-card party">
+<lord-icon
+ src="https://cdn.lordicon.com/nsgykrsg.json"
+ trigger="loop"
+ delay="2000"
+ stroke="light"
+ colors="primary:#d7bde2 ,secondary:#E6E6FA"
+ style="width:200px;height:200px">
+</lord-icon>
+<h2>Recepción</h2>
+<p>Salón los Reyes, Hotel Barceló</p>
+<div class="details">
+ <div class="time-location">
+   <span class="date">29 Noviembre</span>
+   <span class="separator">|</span>
+   <span class="time">18:00 hrs</span>
+ </div>
+ <p>7a avenida, Zona 9, Ciudad de Guatemala</p>
+ <button type="button" class="direction-button" onclick="elegirAplicacionOtraDireccion()">Cómo llegar</button>
+</div>
+</div>
+</div>
+
+<!-- Lluvia de sobres -->
+<div class="section-gifts">
+<lord-icon class="icon-gift"
+src="https://cdn.lordicon.com/kezeezyg.json"
+trigger="loop"
+delay="2000"
+stroke="light"
+colors="primary:#d7bde2 ,secondary:#E6E6FA"
+style="width:200px;height:200px">
+</lord-icon>
+<h2>Lluvia de Sobres</h2>
+<p>¡Tu presencia en mis quince es el mejor regalo! Si deseas darme un obsequio, tendremos un cofre en la entrada para que puedas dejar tu sobre con efectivo. ¡Gracias por compartir conmigo este momento tan especial!</p>
+<p>¡Gracias!</p>
+</div>
+
+<!-- Playlist -->
+<div class="section-playlist">
+<h2>Playlist</h2>
+<lord-icon
+src="https://cdn.lordicon.com/vvlnxtgv.json"
+trigger="loop"
+delay="2000"
+stroke="light"
+colors="primary:#d7bde2 ,secondary:#E6E6FA"
+style="width:200px;height:200px">
+</lord-icon>
+<p>Nos encantaría que nos sugieras esas canciones que sabes que son geniales y no pueden faltar.</p>
+<button onclick="window.open('https://open.spotify.com/playlist/32b7iji52uZjL4BgRm9Qdr?si=782ab9fb5d2a4ac6&pt=bf1d87039507bad27746eba0e8202d81', '_blank')">
+Abrir playlist en Spotify
+</button>
+</div>
+
+</div>
+        </section>
+                <!-- SECCIÓN VIDEO DIVISORIA -->
+                <section class="block block--video divider ">
+                    <video
+                 class="block-video"
+                 src="/imagenes/v2.mp4"
+                 poster="/imagenes/foto2.png"
+                 autoplay
+                 muted
+                 loop
+                 playsinline
+                 preload="metadata"
+               ></video>
+             </section>
+
+             <!-- SECCIÓN UNIFICADA FINAL (fondo único) -->
+    <section id="bloque-final" class="block block--fondo-final"
+style="--bg-url:url('/imagenes/siguiente.png')">
+
+<div class="block__content">
+
+<!-- Dress Code -->
+<div class="section">
+<h2>Dress Code</h2>
+<lord-icon
+src="https://cdn.lordicon.com/okgbpdra.json"
+trigger="loop" delay="2000" stroke="light"
+colors="primary:#d7bde2 ,secondary:#E6E6FA"
+style="width:200px;height:200px"></lord-icon>
+<p>El código de vestimenta para este día tan especial es de gala, con preferencia por tonos negro y azul oscuro. Te invitamos a lucir tu mejor atuendo y acompañarnos con elegancia en esta celebración inolvidable.</p>
+</div>
+
+<!-- Galería -->
+<div class="section">
+<h2>Galería</h2>
+<div class="galeria">
+<img src="/imagenes/h1.jpg" alt="Foto 1" class="galeria-imagen" onclick="changePhoto(this)" loading="lazy">
+<img src="/imagenes/h2.jpg" alt="Foto 2" class="galeria-imagen" onclick="changePhoto(this)" loading="lazy">
+<img src="/imagenes/h3.jpg" alt="Foto 3" class="galeria-imagen" onclick="changePhoto(this)" loading="lazy">
+<img src="/imagenes/v2.jpg" alt="Foto 4" class="galeria-imagen" onclick="changePhoto(this)" loading="lazy">
+<img src="/imagenes/v7.jpg" alt="Foto 5" class="galeria-imagen" onclick="changePhoto(this)" loading="lazy">
+<img src="/imagenes/v5.jpg" alt="Foto 6" class="galeria-imagen" onclick="changePhoto(this)" loading="lazy">
+</div>
+</div>
+
+<!-- Modal de fotos -->
+<div id="photo-modal" class="photo-modal" onclick="closeModal(event)">
+<span class="close" onclick="closeModal()">&times;</span>
+<img id="main-photo-modal" src="" alt="Imagen ampliada">
+</div>
+
+<!-- Buenos deseos -->
+<div class="section-wishes">
+<h2>Buenos deseos</h2>
+<button id="mostrarFormularioBtn">Enviar deseo</button>
+<div id="formularioDeseo" style="display: none;">
+<form id="wishForm">
+ <input type="text" id="nombre" placeholder="Nombre" required />
+ <br />
+ <textarea id="mensaje" placeholder="Mensaje" required></textarea>
+ <br />
+ <button type="submit">Enviar deseo</button>
+</form>
+</div>
+<button id="verDeseosBtn">Ver buenos deseos</button>
+<div id="wishesContainer" style="margin-top: 20px; display: none;"></div>
+</div>
+
+<!-- Hashtag / QR -->
+<div class="section-filter">
+<lord-icon
+src="https://cdn.lordicon.com/wsaaegar.json"
+trigger="loop" delay="2000" stroke="light"
+colors="primary:#d7bde2 ,secondary:#E6E6FA"
+style="width:200px;height:200px"></lord-icon>
+<h2>#MisQuinceValeria</h2>
+<p>Sube las foto a Instagram utilizando mi hashtag, y poder convertir estas memorias en eternas.</p>
+<h3>Hagamos los recuerdos inolvidables</h3>
+<img src="/imagenes/QR.png" alt="Código QR" width="250">
+<p>Escanea el código QR o usa el botón para subir tus fotos</p>
+<button onclick="window.open('https://drive.google.com/drive/folders/1BQGWbFowD2ecijiQfsnj8uxip-EhiL_m?usp=sharing','_blank')">Subir fotos</button>
+</div>
+
+<!-- No niños -->
+<div class="section no-ninos">
+<h2>Invitación exclusiva para adultos</h2>
+<p>Para disfrutar plenamente de esta celebración, hemos decidido no incluir niños en esta ocasión.</p>
+</div>
+
+<!-- Confirmación -->
+<div class="section">
+<h3>Confirmar Asistencia</h3>
+<lord-icon
+src="https://cdn.lordicon.com/fjvfsqea.json"
+trigger="loop" delay="2000" stroke="light"
+colors="primary:#d7bde2 ,secondary:#E6E6FA"
+style="width:200px;height:200px"></lord-icon>
+<p>Para nosotros es muy importante que confirmes tu asistencia antes del 05 de Noviembre, o bien indicarnos si no podrás acompañarnos.</p>
+<button onclick="confirmarAsistencia()">Confirmar</button>
+<div id="confirmacion"></div>
+</div>
+
+</div>
+    </section>
+
+
+                <!-- SECCIÓN VIDEO DIVISORIA -->
+                <section class="block block--video divider ">
+                    <video
+                 class="block-video"
+                 src="/imagenes/v3.mp4"
+                 poster="/imagenes/foto3.png"
+                 autoplay
+                 muted
+                 loop
+                 playsinline
+                 preload="metadata"
+               ></video>
+             </section>
+
+        <!-- frase final-->
+        <!-- Frase final con imagen de fondo -->
+        <div class="section-quote bg-image"
+style="--quote-bg:url('/imagenes/siguiente.png')">
+<h1>Hay momentos inolvidables que se atesoran en el corazón para siempre. Por esta razón quiero que compartas conmigo este día tan especial y seas parte de mi historia.</h1>
+</div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="section-social-icons ">
+                <a href="https://www.facebook.com/thetwodesign" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/thetwodesign/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/50236011737" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="section-logo">
+                <img src="/Imagenes/2.png" alt="Logo" width="100" loading="lazy">
+            </div>
+        </footer>
+    </div>
+    <script src="invitados.js"></script>
+    <script type="module" src="firebase.js"></script>
+    <script src="script.js" defer></script>
+    <audio id="magicSound" src="/sonidos/magia.mp3" preload="auto"></audio>
+    <div id="magicEffect"></div>
+</body>
+</html>
