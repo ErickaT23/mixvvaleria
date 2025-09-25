@@ -1,5 +1,5 @@
 :root {
-    --color-1:	#b199cc;
+    --color-1:	#9438c5;
     --color-2: 	#efe3fc;
     --color-3:#003366;
     --color-4:#F5F5F5;
@@ -75,16 +75,16 @@ body {
 /* Texto dentro del sello */
 #seal h2 {
     margin: 0;
-    background: linear-gradient(to right, #ffac00, #d4af37, #d6b80d, #d4af37, #ffac00);
-    -webkit-background-clip: text;
-    color: transparent;
-    animation: shine 1.5s infinite linear;
     font-family: var(--font-title);
     font-weight: 400;
     font-style: italic;
     z-index: 12; /* Texto encima de todo */
     position: relative;
     font-size: 30px;
+    background: linear-gradient( to right,  #ffffff,  /* blanco puro */ #f2f2f2,  /* gris muy claro */#e6e6e6   /* gris suave */);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 1.5s infinite linear;
 }
 #invitacion {
     display: none;
@@ -94,42 +94,43 @@ body {
     box-sizing: border-box;
 }
 /* ====== PORTADA (HERO) ====== */
-.hero{
-    position: relative;
-    width: 100%;
-    min-height: 88vh;              /* que respire en móviles */
-    display: grid;
-    place-items: center;
-    overflow: hidden;
-    isolation: isolate;            /* para manejar capas sin afectar otros z-index */
-    background: var(--color-4);
-  }
-  
-  .hero::before{
-    content:"";
-    position:absolute; inset:0;
-    background-image: var(--hero-url);
-    background-size: cover;
-    background-position: center;
-    filter: saturate(1.05);
-    z-index: -2;
-  }
-  /* Badge superior con nombre del invitado */
-  .hero__badge{
-    position: absolute;
-    top: 12px; left: 50%;
-    transform: translateX(-50%);
-    background: rgba(217, 200, 236, .75);
-    backdrop-filter: blur(2px);
-    color: #fff;
-    padding: 8px 16px;
-    border-radius: 999px;
-    font-family: var(--font-text);
-    font-style: italic;
-    font-size: 18px;
-    box-shadow: 0 8px 24px rgba(0,0,0,.15);
-    border: 1px solid rgba(255,255,255,.3);
-  }
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 88vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--color-4); /* color de fallback */
+}
+
+/* eliminamos el ::before con imagen */
+.hero::before {
+  content: none;
+}
+
+/* video de fondo */
+.hero__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  filter: brightness(1.1); /* aclara un poco el video */
+}
+
+
+/* mantenemos tu badge, títulos y estrellas como están */
+.hero__badge,
+.hero__titles,
+.hero__stars {
+  position: relative;
+  z-index: 1; /* sobre el video */
+}
+
   /* Títulos */
   .hero__titles{
     text-align: center;
@@ -145,13 +146,14 @@ body {
   
   /* Dorado en los títulos (reutiliza tu gradiente) */
   .hero__h1, .hero__h2{
-        background: linear-gradient(to right, #5d3f00, #9e7f18, #a99312, #9e7f18, #5d3f00);
-    -webkit-background-clip: text;
-    color: transparent;
-    animation: shine 1.5s infinite linear;
     font-family: var(--font-title);
     font-weight: 400;
     font-style: italic;
+    background: linear-gradient( to right,#4b0082,  /* índigo oscuro */#6a0dad,  /* morado fuerte */ #2e0854   /* púrpura profundo */);
+-webkit-background-clip: text;
+color: transparent;
+animation: shine 1.5s infinite linear;
+
   }
   
 .hero__h1{
@@ -189,9 +191,14 @@ body {
   
   /* Si querés estrellas más pequeñas en mobile */
   @media (max-width: 480px){
-    .star-img{ width: 16px; height: 16px; }
+    .star-img{ width: 32px; height: 32px; }
     .hero__badge{ 
-        font-size: 25px;
+        font-size: 30px;
+        margin-top: 20px;
+        background: linear-gradient( to right,#4b0082,  /* índigo oscuro */#6a0dad,  /* morado fuerte */ #2e0854   /* púrpura profundo */);
+        -webkit-background-clip: text;
+        color: transparent;
+        animation: shine 1.5s infinite linear;
     }
   }
 /* ===== Sección unificada con fondo ===== */
@@ -283,7 +290,7 @@ body {
 
 /*dorado*/
 .section-countdown h1, p, .countdown-circle span, .section-music h2, .section-quote h1{
-    background: linear-gradient(to right, #5d3f00, #9e7f18, #a99312, #9e7f18, #5d3f00);
+    background: linear-gradient( to right,#4b0082,  /* índigo oscuro */#6a0dad,  /* morado fuerte */ #2e0854   /* púrpura profundo */);
     -webkit-background-clip: text;
     color: transparent;
     animation: shine 1.5s infinite linear;
@@ -306,7 +313,11 @@ body {
     padding: 7px;
 }
 .section-countdown h2 {
-    color: var(--color-2);
+    background: linear-gradient( to right,#4b0082,  /* índigo oscuro */#6a0dad,  /* morado fuerte */ #2e0854   /* púrpura profundo */);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 1.5s infinite linear;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     font-family: var(--font-text);
     font-size: 1.5em;
@@ -359,7 +370,11 @@ body {
     font-size: 1.2em;
 }
 .section-calendar:hover {
-    background-color: var(--color-2);
+    background-    background: linear-gradient( to right,#4b0082,  /* índigo oscuro */#6a0dad,  /* morado fuerte */ #2e0854   /* púrpura profundo */);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 1.5s infinite linear;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 .section-calendar a:hover {
     color: white;
@@ -399,19 +414,25 @@ body {
     font-style: italic;
 }
 #nombreInvitado.fondo-nombre {
-    color: white;
     padding: 10px;
     margin-bottom: 0;
     width: 100%;
     height: auto;
+    background: linear-gradient( to right,#4b0082,  /* índigo oscuro */#6a0dad,  /* morado fuerte */ #2e0854   /* púrpura profundo */);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 1.5s infinite linear;
 }
 #cantidadPases.fondo-pases {
-    color: white;
     padding: 10px;
     margin-bottom: 0;
     margin-top: 0;
     width: 100%;
     height: auto;
+    background: linear-gradient( to right,#4b0082,  /* índigo oscuro */#6a0dad,  /* morado fuerte */ #2e0854   /* púrpura profundo */);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 1.5s infinite linear;
 }
 .block--video{
     position: relative;
@@ -421,12 +442,14 @@ body {
     isolation: isolate;
   }
   
-  .block--video .block-video{
-    position: absolute; inset: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;         /* recorta sin deformar */
-    filter: saturate(1.05);
-  }
+  .block--video .block-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+}
   
   /* Respeto a usuarios con reducción de movimiento */
   @media (prefers-reduced-motion: reduce){
@@ -492,7 +515,7 @@ body {
   .event-card .time-location{ display: flex; align-items: center; gap: 8px; justify-content: center; }
   
   .direction-button{
-    background-color: rgb(217,190,238);
+    background-color: #9061a9;
     color: #fff;
     border: none;
     border-radius: 10px;
@@ -508,6 +531,27 @@ body {
   @media (min-width: 768px){
     .itinerary-grid{ grid-template-columns: 1fr 1fr; gap: 22px; }
   }
+  .event-photo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+  
+  .event-photo img {
+    width: 310px;        /* ajusta tamaño */
+    height: 310px;
+    border-radius: 50%;  /* lo hace circular */
+    object-fit: cover;   /* que no se deforme */
+    box-shadow: 
+      0 8px 16px rgba(0,0,0,0.25),  /* sombra principal */
+      inset 0 2px 6px rgba(255,255,255,0.2); /* brillo interior para efecto 3D */
+    transition: transform .3s ease;
+  }
+  
+  .event-photo img:hover {
+    transform: scale(1.05); /* efecto al pasar el mouse */
+  }
+  
   /* ===== Bloque unificado final con fondo ===== */
 .block--fondo-final{
     position: relative;
@@ -593,7 +637,7 @@ body {
     font-weight: 400;
     font-size: 28px;
     margin-top: -60px;
-        background: linear-gradient(to right, #5d3f00, #9e7f18, #a99312, #9e7f18, #5d3f00);
+        background: linear-gradient( to right,#4b0082,  /* índigo oscuro */#6a0dad,  /* morado fuerte */ #2e0854   /* púrpura profundo */);
     -webkit-background-clip: text;
     color: transparent;
     animation: shine 1.5s infinite linear;
@@ -606,7 +650,11 @@ body {
     font-size: 50px;
     margin-top: -10px;
     margin-bottom: -10px;
-    color:var(--color-2);
+    background: linear-gradient( to right,#4b0082,  /* índigo oscuro */#6a0dad,  /* morado fuerte */ #2e0854   /* púrpura profundo */);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 1.5s infinite linear;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 .section {
@@ -672,7 +720,7 @@ body {
     font-size: 40px;
     margin-top: -10px;
     margin-bottom: -10px;
-        background: linear-gradient(to right, #5d3f00, #9e7f18, #a99312, #9e7f18, #5d3f00);
+    background: linear-gradient( to right,#4b0082,  /* índigo oscuro */#6a0dad,  /* morado fuerte */ #2e0854   /* púrpura profundo */);
     -webkit-background-clip: text;
     color: transparent;
     animation: shine 1.5s infinite linear;
@@ -708,7 +756,11 @@ body {
     font-style: italic;
     font-weight: 400;
     font-size: 28px;
-    color: var(--color-2);
+        background: linear-gradient( to right,#4b0082,  /* índigo oscuro */#6a0dad,  /* morado fuerte */ #2e0854   /* púrpura profundo */);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 1.5s infinite linear;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 .section-main {
     position: relative;
@@ -741,7 +793,11 @@ body {
     font-size: 40px;
     margin-top: 20px;
     margin-bottom: 10px;
-    color: var(--color-2);
+        background: linear-gradient( to right,#4b0082,  /* índigo oscuro */#6a0dad,  /* morado fuerte */ #2e0854   /* púrpura profundo */);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 1.5s infinite linear;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 .section p, .section-gifts p, .section-filter p{
@@ -751,14 +807,22 @@ body {
     font-size: 28px;
     padding: 5px;
     margin: 0;
-    color: var(--color-2);
+        background: linear-gradient( to right,#4b0082,  /* índigo oscuro */#6a0dad,  /* morado fuerte */ #2e0854   /* púrpura profundo */);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 1.5s infinite linear;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 .section span{
     font-family: var(--font-text);
     font-style: normal;
     font-weight: 400;
     font-size: 28px;
-    color: var(--color-2);
+        background: linear-gradient( to right,#4b0082,  /* índigo oscuro */#6a0dad,  /* morado fuerte */ #2e0854   /* púrpura profundo */);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 1.5s infinite linear;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     padding: 0;
     margin: 0;
 }
@@ -858,7 +922,7 @@ body {
     cursor: pointer;
 }/*botones*/
 button {
-    background-color:rgb(217, 190, 238);
+    background-color:#9061a9;
     color: #fff;
     border-radius: 5px;
     font-family: var(--font-text);
@@ -906,7 +970,11 @@ footer {
   .section-wishes h2 {
     font-family: var(--font-title);
     font-size: 50px;
-    color: var(--color-2);
+        background: linear-gradient( to right,#4b0082,  /* índigo oscuro */#6a0dad,  /* morado fuerte */ #2e0854   /* púrpura profundo */);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 1.5s infinite linear;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     font-style: italic;
     margin-bottom: 20px;
     text-shadow: 2px 2px 5px rgba(0,0,0,0.05);
@@ -947,12 +1015,20 @@ footer {
     display: block;
     font-family: var(--font-title);
     font-size: 1.2em;
-    color: var(--color-2);
+        background: linear-gradient( to right,#4b0082,  /* índigo oscuro */#6a0dad,  /* morado fuerte */ #2e0854   /* púrpura profundo */);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 1.5s infinite linear;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   }
   .wish-card em {
     font-family: var(--font-text);
     font-style: italic;
-    color: var(--color-2);
+        background: linear-gradient( to right,#4b0082,  /* índigo oscuro */#6a0dad,  /* morado fuerte */ #2e0854   /* púrpura profundo */);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 1.5s infinite linear;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   }
 #magicEffect {
     position: fixed;

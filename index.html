@@ -30,18 +30,31 @@
     <!-- Contenido de la Invitación -->
     <div id="invitacion">
         <!--Header-->
-        <!-- PORTADA -->
-        <section id="portada" class="hero" style="--hero-url:url('/imagenes/portada.png')">
-        <!-- Badge superior con el nombre del invitado -->
-        <div id="badgeInvitado" class="hero__badge" aria-live="polite"></div>
+ <!-- PORTADA -->
+ <!-- PORTADA -->
+<section id="portada" class="hero">
   
-    <!-- Títulos sobre la foto -->
+    <!-- Video de fondo -->
+    <video class="hero__video" 
+           src="/imagenes/video-portada.mp4" 
+           autoplay 
+           muted 
+           loop 
+           playsinline 
+           preload="metadata" 
+           poster="/imagenes/video-portada.png">
+    </video>
+    
+    <!-- Badge superior con el nombre del invitado -->
+    <div id="badgeInvitado" class="hero__badge" aria-live="polite"></div>
+  
+    <!-- Títulos sobre el video -->
     <div class="hero__titles">
       <h1 class="hero__h1">Mis Quince</h1>
       <h2 class="hero__h2">Valeria Farfán Lucas</h2>
     </div>
   
-    <!-- Estrellas decorativas (imágenes) -->
+    <!-- Estrellas decorativas -->
     <div class="hero__stars" aria-hidden="true">
       <img src="/imagenes/ESTRELLAS-D.png" alt="" class="star-img s1">
       <img src="/imagenes/ESTRELLAS-I.png" alt="" class="star-img s2">
@@ -49,7 +62,8 @@
       <img src="/imagenes/ESTRELLAS-I.png" alt="" class="star-img s4">
       <img src="/imagenes/ESTRELLAS-D.png" alt="" class="star-img s5">
     </div>
-        </section>
+  </section>
+  
         <!-- SECCIÓN UNIFICADA CON FONDO -->
         <section id="celebracion" class="block block--celebracion "
         style="--bg-url:url('/imagenes/siguiente.png')">
@@ -110,8 +124,8 @@
         <section class="block block--video divider ">
          <video
       class="block-video"
-      src="/imagenes/v1.mp4"
-      poster="/imagenes/foto1.png"
+      src="/imagenes/video-foto1.mp4"
+      poster="/imagenes/video-foto1.png"
       autoplay
       muted
       loop
@@ -135,14 +149,11 @@
 <div class="section itinerary-grid">
 <!-- Ceremonia -->
 <div class="card event-card ceremony">
-<lord-icon
- src="https://cdn.lordicon.com/jqmftaai.json"
- trigger="loop"
- delay="2000"
- stroke="light"
- colors="primary:#d7bde2 ,secondary:#E6E6FA"
- style="width:200px;height:200px">
-</lord-icon>
+      <!-- Foto circular -->
+  <div class="event-photo">
+    <img src="/imagenes/iglesia.png" alt="Ceremonia"/>
+  </div>
+
 <h2>Ceremonia</h2>
 <p>Iglesia Nuestra Señora de Guadalupe</p>
 <div class="details">
@@ -158,14 +169,10 @@
 
 <!-- Recepción -->
 <div class="card event-card party">
-<lord-icon
- src="https://cdn.lordicon.com/nsgykrsg.json"
- trigger="loop"
- delay="2000"
- stroke="light"
- colors="primary:#d7bde2 ,secondary:#E6E6FA"
- style="width:200px;height:200px">
-</lord-icon>
+          <!-- Foto circular -->
+  <div class="event-photo">
+    <img src="/imagenes/hotel.png" alt="Hotel"/>
+  </div>
 <h2>Recepción</h2>
 <p>Salón los Reyes, Hotel Barceló</p>
 <div class="details">
@@ -187,11 +194,11 @@ src="https://cdn.lordicon.com/kezeezyg.json"
 trigger="loop"
 delay="2000"
 stroke="light"
-colors="primary:#d7bde2 ,secondary:#E6E6FA"
+colors="primary:#4b0082 ,secondary:#9438c5"
 style="width:200px;height:200px">
 </lord-icon>
 <h2>Lluvia de Sobres</h2>
-<p>¡Tu presencia en mis quince es el mejor regalo! Si deseas darme un obsequio, tendremos un cofre en la entrada para que puedas dejar tu sobre con efectivo. ¡Gracias por compartir conmigo este momento tan especial!</p>
+<p>¡Tu presencia en mis quince es el mejor regalo! Si deseas darme un obsequio, tendremos un cofre en la recepción para que puedas dejar tu sobre con efectivo. ¡Gracias por compartir conmigo este momento tan especial!</p>
 <p>¡Gracias!</p>
 </div>
 
@@ -203,7 +210,7 @@ src="https://cdn.lordicon.com/vvlnxtgv.json"
 trigger="loop"
 delay="2000"
 stroke="light"
-colors="primary:#d7bde2 ,secondary:#E6E6FA"
+colors="primary:#4b0082 ,secondary:#9438c5"
 style="width:200px;height:200px">
 </lord-icon>
 <p>Nos encantaría que nos sugieras esas canciones que sabes que son geniales y no pueden faltar.</p>
@@ -218,8 +225,8 @@ Abrir playlist en Spotify
                 <section class="block block--video divider ">
                     <video
                  class="block-video"
-                 src="/imagenes/v2.mp4"
-                 poster="/imagenes/foto2.png"
+                 src="/imagenes/video-foto2.mp4"
+                 poster="/imagenes/video-foto2.png"
                  autoplay
                  muted
                  loop
@@ -240,9 +247,9 @@ style="--bg-url:url('/imagenes/siguiente.png')">
 <lord-icon
 src="https://cdn.lordicon.com/okgbpdra.json"
 trigger="loop" delay="2000" stroke="light"
-colors="primary:#d7bde2 ,secondary:#E6E6FA"
+colors="primary:#4b0082 ,secondary:#9438c5"
 style="width:200px;height:200px"></lord-icon>
-<p>El código de vestimenta para este día tan especial es de gala, con preferencia por tonos negro y azul oscuro. Te invitamos a lucir tu mejor atuendo y acompañarnos con elegancia en esta celebración inolvidable.</p>
+<p>De gala colores negro o azul oscuro. Acompáñanos con elegancia en esta celebración inolvidable</p>
 </div>
 
 <!-- Galería -->
@@ -286,7 +293,7 @@ style="width:200px;height:200px"></lord-icon>
 <lord-icon
 src="https://cdn.lordicon.com/wsaaegar.json"
 trigger="loop" delay="2000" stroke="light"
-colors="primary:#d7bde2 ,secondary:#E6E6FA"
+colors="primary:#4b0082 ,secondary:#9438c5"
 style="width:200px;height:200px"></lord-icon>
 <h2>#MisQuinceValeria</h2>
 <p>Sube las foto a Instagram utilizando mi hashtag, y poder convertir estas memorias en eternas.</p>
@@ -296,11 +303,6 @@ style="width:200px;height:200px"></lord-icon>
 <button onclick="window.open('https://drive.google.com/drive/folders/1BQGWbFowD2ecijiQfsnj8uxip-EhiL_m?usp=sharing','_blank')">Subir fotos</button>
 </div>
 
-<!-- No niños -->
-<div class="section no-ninos">
-<h2>Invitación exclusiva para adultos</h2>
-<p>Para disfrutar plenamente de esta celebración, hemos decidido no incluir niños en esta ocasión.</p>
-</div>
 
 <!-- Confirmación -->
 <div class="section">
@@ -308,9 +310,9 @@ style="width:200px;height:200px"></lord-icon>
 <lord-icon
 src="https://cdn.lordicon.com/fjvfsqea.json"
 trigger="loop" delay="2000" stroke="light"
-colors="primary:#d7bde2 ,secondary:#E6E6FA"
+colors="primary:#4b0082 ,secondary:#9438c5"
 style="width:200px;height:200px"></lord-icon>
-<p>Para nosotros es muy importante que confirmes tu asistencia antes del 05 de Noviembre, o bien indicarnos si no podrás acompañarnos.</p>
+<p>Para nosotros es muy importante que confirmes tu asistencia antes del 10 de Noviembre, o bien indicarnos si no podrás acompañarnos.</p>
 <button onclick="confirmarAsistencia()">Confirmar</button>
 <div id="confirmacion"></div>
 </div>
@@ -323,8 +325,8 @@ style="width:200px;height:200px"></lord-icon>
                 <section class="block block--video divider ">
                     <video
                  class="block-video"
-                 src="/imagenes/v3.mp4"
-                 poster="/imagenes/foto3.png"
+                 src="/imagenes/video-final.mp4"
+                 poster="/imagenes/video-final.png"
                  autoplay
                  muted
                  loop

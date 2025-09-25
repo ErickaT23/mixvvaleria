@@ -66,12 +66,12 @@ function pintarInvitadoEnUI(invitado) {
   const badge     = document.getElementById('badgeInvitado');
 
   nombreEls.forEach(el => {
-    el.innerText = `¡${invitado.nombre}!`;
+    el.innerText = `${invitado.nombre}`;
     el.classList.add('fondo-nombre');
   });
 
   pasesEls.forEach(el => {
-    const texto = invitado.pases ? `¡Invitación válida para ${invitado.pases}!` : '';
+    const texto = invitado.pases ? `Invitación válida para ${invitado.pases} persona` : '';
     el.innerText = texto;
     el.classList.add('fondo-pases');
   });
