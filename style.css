@@ -1015,7 +1015,7 @@ footer {
     display: block;
     font-family: var(--font-title);
     font-size: 1.2em;
-        background: linear-gradient( to right,#4b0082,  /* índigo oscuro */#6a0dad,  /* morado fuerte */ #2e0854   /* púrpura profundo */);
+    background: linear-gradient( to right,#4b0082,  /* índigo oscuro */#6a0dad,  /* morado fuerte */ #2e0854   /* púrpura profundo */);
     -webkit-background-clip: text;
     color: transparent;
     animation: shine 1.5s infinite linear;
