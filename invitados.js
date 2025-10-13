@@ -75,6 +75,7 @@ window.invitados = {
   '73': { nombre: 'Isabella Fajardo', pases: 1 },
   '74': { nombre: 'Nicolle Rangel', pases: 1 },
   '75': { nombre: 'Alexa Escobar', pases: 1 },
-  '76': { nombre: 'Sarah Requena', pases: 1 }
+  '76': { nombre: 'Sarah Requena', pases: 1 },
+  '77': { nombre: '', pases: 1 },
 };
 
