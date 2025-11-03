@@ -8,7 +8,7 @@ window.invitados = {
   '6': { nombre: 'Familia Morales Tepeque', pases: 5 },
   '7': { nombre: 'Licda. Victoria García', pases: 1 },
   '8': { nombre: 'Licda. Brenet Hernández', pases: 2 },
-  '9': { nombre: 'Familia Chinchilla Giulia y Ofelia', pases: 5 },
+  '9': { nombre: 'Familia Chinchilla', pases: 4 },
   '10': { nombre: 'Familia Hernández Lucas', pases: 4 },
   '11': { nombre: 'Familia Arriaza España', pases: 3 },
   '12': { nombre: 'Familia Mazariesgos Melgarejo', pases: 3 },
@@ -77,5 +77,9 @@ window.invitados = {
   '75': { nombre: 'Alexa Escobar', pases: 1 },
   '76': { nombre: 'Sarah Requena', pases: 1 },
   '77': { nombre: '', pases: 1 },
+  '78': { nombre: 'Juan Carlos Carpio y Hanna', pases: 2 },
+  '79': { nombre: 'Familia Carpio', pases: 2 },
+  '80': { nombre: 'Familia Escobar', pases: 4 },
+  '81': { nombre: 'Julio Ramiro Rodriguez', pases: 3 }
 };
 
