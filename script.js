@@ -71,8 +71,13 @@ function pintarInvitadoEnUI(invitado) {
   });
 
   pasesEls.forEach(el => {
-    const texto = invitado.pases ? `Invitación válida para ${invitado.pases} persona` : '';
-    el.innerText = texto;
+    if (invitado.pases) {
+      const cantidad = Number(invitado.pases);
+      const palabra = cantidad === 1 ? 'persona' : 'personas';
+      el.innerText = `Invitación válida para ${cantidad} ${palabra}`;
+    } else {
+      el.innerText = '';
+    }
     el.classList.add('fondo-pases');
   });
 
@@ -103,6 +108,7 @@ function cargarDatosInvitado() {
   });
   obs.observe(document.body, { childList: true, subtree: true });
 }
+
 
 /* ---------- Contador ---------- */
 function iniciarContador() {
