@@ -80,6 +80,7 @@ window.invitados = {
   '78': { nombre: 'Juan Carlos Carpio y Hanna', pases: 2 },
   '79': { nombre: 'Familia Carpio', pases: 2 },
   '80': { nombre: 'Familia Escobar', pases: 4 },
-  '81': { nombre: 'Julio Ramiro Rodriguez', pases: 3 }
+  '81': { nombre: 'Julio Ramiro Rodriguez', pases: 3 },
+  '82': { nombre: 'Yojana Diaz', pases: 2 }
 };
 
