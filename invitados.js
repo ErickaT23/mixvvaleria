@@ -81,6 +81,9 @@ window.invitados = {
   '79': { nombre: 'Familia Carpio', pases: 2 },
   '80': { nombre: 'Familia Escobar', pases: 4 },
   '81': { nombre: 'Julio Ramiro Rodriguez', pases: 3 },
-  '82': { nombre: 'Yojana Diaz', pases: 2 }
+  '82': { nombre: 'Yojana Diaz', pases: 2 },
+  '83': { nombre: 'Carlos Oaja, Sra e hijos.', pases: 5 },
+  '84': { nombre: 'Familia Perez Gonzalez', pases: 4 },
+  '85': { nombre: '', pases: 2 }
 };
 
